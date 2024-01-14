@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjtnoyoxl24ji"]
+
+[ext_resource type="Script" path="res://EnemyTest.gd" id="1_t05do"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejaqy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_o0ybm"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_t05do")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ejaqy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_o0ybm")

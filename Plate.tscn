@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxoiv7a745hox"]
+
+[ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player.tscn" id="1_wk25d"]
+[ext_resource type="Script" path="res://Enemy.gd" id="2_hpho0"]
+[ext_resource type="PackedScene" uid="uid://bjtnoyoxl24ji" path="res://Enemy.tscn" id="3_cdtqy"]
+[ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://FireParticle.tscn" id="4_gqhdc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_11jrc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_qtqfi"]
+sky_material = SubResource("ProceduralSkyMaterial_11jrc")
+
+[sub_resource type="Environment" id="Environment_p87ns"]
+background_mode = 2
+sky = SubResource("Sky_qtqfi")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghryr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7q6sw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p87ns")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(24.6, 1, 23)
+
+[node name="Player" parent="." instance=ExtResource("1_wk25d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00284, 3.96474, 3.99963)
+
+[node name="Enemy" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06093, 6.43403)
+script = ExtResource("2_hpho0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+shape = SubResource("BoxShape3D_ghryr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enemy"]
+mesh = SubResource("BoxMesh_7q6sw")
+skeleton = NodePath("../..")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_cdtqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8745, 8.06836, 1.17668)
+
+[node name="FireParticle" parent="." instance=ExtResource("4_gqhdc")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.34073, 1.707, 4.8363)
