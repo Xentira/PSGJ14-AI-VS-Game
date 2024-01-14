@@ -1,6 +1,6 @@
 [gd_resource type="QuadMesh" load_steps=3 format=3 uid="uid://pqavvbm1cyx3"]
 
-[ext_resource type="Texture2D" uid="uid://b3xp8vdjthreh" path="res://Fire - Copy.png" id="1_5e5o6"]
+[ext_resource type="Texture2D" uid="uid://b3xp8vdjthreh" path="res://Images/Fire - Copy.png" id="1_5e5o6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtdbc"]
 transparency = 1
