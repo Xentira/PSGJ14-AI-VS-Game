@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5tnnfsws8abe"]
 
-[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_vi11p"]
-[ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://FireParticle.tscn" id="2_80jcc"]
+[ext_resource type="Script" path="res://Player/CharacterBody3D.gd" id="1_gh1lx"]
+[ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://Particles/FireParticle.tscn" id="2_80jcc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x6riq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_d01xc"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-script = ExtResource("1_vi11p")
+script = ExtResource("1_gh1lx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_x6riq")

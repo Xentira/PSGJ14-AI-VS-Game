@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dix75wa2f3ond"]
 
-[ext_resource type="QuadMesh" uid="uid://pqavvbm1cyx3" path="res://FireParticle1.tres" id="1_5a125"]
+[ext_resource type="QuadMesh" uid="uid://pqavvbm1cyx3" path="res://Particles/FireParticle1.tres" id="1_5a125"]
 
 [sub_resource type="Curve" id="Curve_4c6it"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.557971, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.4328, 0.0, 0, 0]
