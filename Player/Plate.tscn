@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxoiv7a745hox"]
+[gd_scene load_steps=11 format=3 uid="uid://cxoiv7a745hox"]
 
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="1_wk25d"]
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="2_hpho0"]
@@ -18,6 +18,9 @@ sky = SubResource("Sky_qtqfi")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j3h1d"]
+albedo_color = Color(0.192157, 0.337255, 0.0470588, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ghryr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7q6sw"]
@@ -34,6 +37,7 @@ environment = SubResource("Environment_p87ns")
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
 size = Vector3(24.6, 1, 23)
+material = SubResource("StandardMaterial3D_j3h1d")
 
 [node name="Player" parent="." instance=ExtResource("1_wk25d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00284, 3.96474, 3.99963)
