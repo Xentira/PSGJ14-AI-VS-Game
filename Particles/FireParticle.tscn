@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dix75wa2f3ond"]
+[gd_scene load_steps=14 format=3 uid="uid://dix75wa2f3ond"]
 
-[ext_resource type="QuadMesh" uid="uid://pqavvbm1cyx3" path="res://Particles/FireParticle1.tres" id="1_5a125"]
+[ext_resource type="QuadMesh" uid="uid://pqavvbm1cyx3" path="res://FireParticle1.tres" id="1_5a125"]
+[ext_resource type="Texture2D" uid="uid://ckdqyfkil1uiu" path="res://Fire3.png" id="2_3uflg"]
+[ext_resource type="Texture2D" uid="uid://cknvb6c3v7y5c" path="res://Fire2.png" id="3_4n8nt"]
 
 [sub_resource type="Curve" id="Curve_4c6it"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.557971, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.4328, 0.0, 0, 0]
@@ -21,14 +23,62 @@ spread = 0.0
 gravity = Vector3(0, -0.5, 0)
 scale_curve = SubResource("CurveTexture_w4e5d")
 
+[sub_resource type="Curve" id="Curve_csq4q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.42029, 1), -0.259969, -0.259969, 0, 0, Vector2(0.789855, 0.505494), -0.0784389, -0.0784389, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_i7hvk"]
+curve = SubResource("Curve_csq4q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p67om"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 1.0
+gravity = Vector3(0, -0.5, 0)
+scale_curve = SubResource("CurveTexture_i7hvk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgmls"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_3uflg")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_lx6o7"]
+material = SubResource("StandardMaterial3D_fgmls")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvgjl"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_4n8nt")
+texture_filter = 0
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_27gbn"]
+material = SubResource("StandardMaterial3D_hvgjl")
+
 [node name="FireParticle" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-amount = 50
+amount = 5
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_3vq61")
 draw_pass_1 = ExtResource("1_5a125")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_p67om")
+draw_pass_1 = SubResource("QuadMesh_lx6o7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0.976471, 0.552941, 0, 1)
 light_energy = 3.0
 light_size = 10.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_p67om")
+draw_pass_1 = SubResource("QuadMesh_27gbn")
