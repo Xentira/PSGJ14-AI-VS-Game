@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4l8b06071s1t"]
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_v2jw3"]
+item/0/name = ""
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+
+[node name="Level1" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_v2jw3")
