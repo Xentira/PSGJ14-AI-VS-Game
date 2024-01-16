@@ -6,7 +6,7 @@ const speedMove = 3.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+#@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 var speed = 5 # Set the speed value
@@ -27,4 +27,4 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * speedMove
 		#pass
 	move_and_slide()
-	animation_player.play("Walk Cycle")
+	#animation_player.play("Walk Cycle")

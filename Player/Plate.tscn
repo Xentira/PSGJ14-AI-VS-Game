@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxoiv7a745hox"]
+[gd_scene load_steps=15 format=3 uid="uid://cxoiv7a745hox"]
 
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="1_wk25d"]
 [ext_resource type="Script" path="res://Enemies/Enemy.gd" id="2_hpho0"]
 [ext_resource type="PackedScene" uid="uid://bjtnoyoxl24ji" path="res://Enemies/Enemy.tscn" id="3_cdtqy"]
 [ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://Particles/FireParticle.tscn" id="4_gqhdc"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="5_xxkw4"]
+[ext_resource type="Script" path="res://Enemies/anti_virus.gd" id="6_emkvr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_11jrc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,6 +26,10 @@ albedo_color = Color(0.192157, 0.337255, 0.0470588, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ghryr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7q6sw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nbveb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2te24"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -62,3 +67,13 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.340
 
 [node name="AntiVirus" parent="." instance=ExtResource("5_xxkw4")]
 transform = Transform3D(-0.997808, -0.00327584, 0.0660929, -0.00320272, 0.999994, 0.00121218, -0.0660965, 0.000997824, -0.997813, 1.75126, 6.53864, -7.11867)
+
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02478, 2.60238, 0)
+script = ExtResource("6_emkvr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D2"]
+mesh = SubResource("BoxMesh_nbveb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2"]
+shape = SubResource("BoxShape3D_2te24")
