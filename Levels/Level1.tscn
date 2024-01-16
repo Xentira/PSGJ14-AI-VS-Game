@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4l8b06071s1t"]
+[gd_scene load_steps=4 format=3 uid="uid://b4l8b06071s1t"]
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
+[ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="2_pqnr6"]
+[ext_resource type="PackedScene" uid="uid://bhcwkyft3p2cm" path="res://Models/Anti-Virus.blend" id="3_5s6us"]
 
 [node name="Level1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.436397, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_3r2uw")
@@ -14,3 +17,9 @@ data = {
 transform = Transform3D(1, 0, 0, 0, 0.440644, 0.897682, 0, -0.897682, 0.440644, 0, 6.1806, 5.29686)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_pqnr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338394, 2.71053, 4.05523)
+
+[node name="Anti-Virus2" parent="." instance=ExtResource("3_5s6us")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.52386, 3.97294, 3.00886)
