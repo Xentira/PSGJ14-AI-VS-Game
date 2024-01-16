@@ -1,25 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4l8b06071s1t"]
+[gd_scene load_steps=7 format=3 uid="uid://b4l8b06071s1t"]
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="2_pqnr6"]
-[ext_resource type="PackedScene" uid="uid://bhcwkyft3p2cm" path="res://Models/Anti-Virus.blend" id="3_5s6us"]
+[ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="3_24kfy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tswcb"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_apsu2"]
+sky_material = SubResource("ProceduralSkyMaterial_tswcb")
+
+[sub_resource type="Environment" id="Environment_8uqvw"]
+background_mode = 2
+sky = SubResource("Sky_apsu2")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Level1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.436397, 0)
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8uqvw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_3r2uw")
+cell_size = Vector3(16, 1, 16)
 data = {
-"cells": PackedInt32Array(65535, 65535, 0, 0, 65535, 0, 0, 0, 0, 65535, 0, 0, 65534, 0, 0, 65534, 65535, 0, 65535, 65534, 0, 0, 65534, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 65535, 1, 0, 65534, 1, 0, 1, 65534, 0, 65534, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 65534, 0, 2, 65535, 0, 2, 0, 0, 2, 1, 0, 2, 2, 0, 65533, 65534, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0, 4, 65534, 0, 4, 65533, 0, 3, 65533, 0, 2, 65533, 0, 1, 65533, 0, 0, 65533, 0, 65535, 65533, 0, 65534, 65533, 0, 65533, 65533, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 1, 0, 65532, 2, 0, 4, 65535, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 4, 3, 0, 4, 4, 0, 3, 4, 0, 2, 4, 0, 1, 4, 0, 0, 4, 0, 65535, 4, 0, 65534, 4, 0, 65533, 4, 0, 65532, 4, 0, 65531, 4, 0, 65531, 3, 0, 65531, 2, 0, 65531, 1, 0, 65531, 0, 0, 65531, 65535, 0, 65531, 65534, 0, 65531, 65533, 0, 5, 65533, 0, 5, 65534, 0, 5, 65535, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 4, 5, 0, 3, 5, 0, 2, 5, 0, 1, 5, 0, 0, 5, 0, 65535, 5, 0, 65534, 5, 0, 65533, 5, 0, 65532, 5, 0, 65531, 5, 0, 65530, 5, 0, 65530, 4, 0, 65530, 3, 0, 65529, 3, 0, 65529, 2, 0, 65530, 1, 0, 65530, 0, 0, 65530, 2, 0, 65529, 0, 0, 65529, 65535, 0, 65529, 65534, 0, 65530, 65534, 0, 65530, 65533, 0, 65530, 65535, 0, 65529, 65533, 0, 65529, 1, 0, 65529, 4, 0, 65529, 5, 0, 6, 65533, 0, 6, 65534, 0, 6, 65535, 0, 6, 0, 0, 6, 1, 0, 6, 2, 0, 6, 3, 0, 6, 4, 0, 6, 5, 0)
+"cells": PackedInt32Array(0, 13, 0, 65535, 0, 0, 65535, 1, 0, 65535, 2, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 65535, 0, 1, 1, 0, 1, 2, 0, 65534, 2, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 65535, 53, 0, 65535, 30, 0, 65535, 29, 0, 65535, 28, 0, 65535, 27, 0, 65535, 26, 0, 65535, 25, 0, 65535, 24, 0, 65535, 23, 0, 65535, 22, 0, 65535, 21, 0, 65535, 20, 0, 65535, 19, 0, 65535, 18, 0, 65535, 17, 0, 65535, 16, 0, 65535, 15, 0, 65535, 14, 0, 65535, 13, 0, 65535, 12, 0, 65535, 11, 0, 65535, 10, 0, 65535, 9, 0, 65535, 8, 0, 0, 8, 0, 0, 7, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 1, 12, 0, 1, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 0, 1, 18, 0, 1, 19, 0, 1, 21, 0, 1, 22, 0, 1, 23, 0, 1, 24, 0, 1, 25, 0, 1, 26, 0, 1, 27, 0, 1, 28, 0, 1, 29, 0, 1, 30, 0, 1, 31, 0, 1, 32, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 31, 0, 0, 30, 0, 0, 29, 0, 0, 28, 0, 0, 27, 0, 0, 26, 0, 0, 25, 0, 0, 24, 0, 0, 23, 0, 0, 22, 0)
 }
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.440644, 0.897682, 0, -0.897682, 0.440644, 0, 6.1806, 5.29686)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_pqnr6")]
+[node name="Player" parent="." instance=ExtResource("2_pqnr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338394, 2.71053, 4.05523)
 
-[node name="Anti-Virus2" parent="." instance=ExtResource("3_5s6us")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.52386, 3.97294, 3.00886)
+[node name="Anti-Virus" parent="." instance=ExtResource("3_24kfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.32781, 0.5, 14.9109)
