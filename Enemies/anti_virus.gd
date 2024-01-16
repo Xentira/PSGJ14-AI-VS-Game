@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const speedMove = 3.5
+const speedMove = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -24,7 +24,8 @@ func _physics_process(delta: float) -> void:
 	rotation.x = 0
 	if state == 0:
 		var direction = (player.position - self.position).normalized()
-		velocity = direction * speedMove
+		velocity.x = direction.x * speedMove
+		velocity.z = direction.z * speedMove	
 		#pass
 	move_and_slide()
 	#animation_player.play("Walk Cycle")

@@ -63,12 +63,14 @@ material = SubResource("StandardMaterial3D_hvgjl")
 
 [node name="FireParticle" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+emitting = false
 amount = 5
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_3vq61")
 draw_pass_1 = ExtResource("1_5a125")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_p67om")
 draw_pass_1 = SubResource("QuadMesh_lx6o7")
@@ -79,6 +81,7 @@ light_energy = 3.0
 light_size = 10.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_p67om")
 draw_pass_1 = SubResource("QuadMesh_27gbn")

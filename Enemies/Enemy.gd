@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
-var speed = 5 # Set the speed value
+var speed = 1 # Set the speed value
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity") # Gravity value
 

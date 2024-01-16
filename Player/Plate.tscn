@@ -46,10 +46,10 @@ size = Vector3(24.6, 1, 23)
 material = SubResource("StandardMaterial3D_j3h1d")
 
 [node name="Player" parent="." instance=ExtResource("1_wk25d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00284, 3.96474, 3.99963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00284, 1.79975, 3.99963)
 
 [node name="Enemy" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06093, 6.43403)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33913, 6.43403)
 script = ExtResource("2_hpho0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
@@ -66,10 +66,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83709, 8.06836, 1.17668)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.34073, 1.707, 4.8363)
 
 [node name="AntiVirus" parent="." instance=ExtResource("5_xxkw4")]
-transform = Transform3D(-0.997808, -0.00327584, 0.0660929, -0.00320272, 0.999994, 0.00121218, -0.0660965, 0.000997824, -0.997813, 1.75126, 6.53864, -7.11867)
+transform = Transform3D(-0.997808, -0.00327584, 0.0660929, -0.00320272, 0.999994, 0.00121218, -0.0660965, 0.000997824, -0.997813, 1.75126, 0.997893, -7.11867)
 
 [node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02478, 2.60238, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02478, 1.01555, 0.163246)
 script = ExtResource("6_emkvr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D2"]
