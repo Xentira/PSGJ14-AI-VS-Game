@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbq6dfshsc4lm"]
+
+[ext_resource type="PackedScene" uid="uid://c86f4ua6u4yhx" path="res://Models/16x16Tile.blend" id="1_f8ws0"]
+
+[node name="16x16Tile" instance=ExtResource("1_f8ws0")]
