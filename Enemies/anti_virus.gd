@@ -20,7 +20,7 @@ func _onready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	scale = Vector3(size, size, size)
-	#ray.target_position = player.position
+	#ray.target_position = player.position * -1
 	#ray.cast_to = ray.cast_to.normalized() * 3
 	# Add the gravity.
 	if not is_on_floor():
@@ -42,17 +42,22 @@ func _physics_process(delta: float) -> void:
 				if ray.get_collider() == player:
 					state = States.MELEE
 		States.MELEE:
+			print("entering melee")
 			if not waiting:
+				print("playing melee")
 				#reset to default speed for animation
 				animation_player.speed_scale = 1
 				animation_player.play("Melee") # play the animation
 				waiting = true
-
+			print("checking if done")
 			if animation_player.is_playing() == false:
 				if ray.get_collider() != player:
 					state = States.MOVING
 					waiting = false
 				else:
+					if ray.get_collider() == player:
+						print("reset melee")
+						waiting = false
 					waiting = true
 		States.DEAD:
 			#reset to default speed for animation

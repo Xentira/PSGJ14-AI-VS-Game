@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjm5ebeou5ra0"
-path.s3tc="res://.godot/imported/Anti-Virus.png-35dbbed05a2a3670033b1d3ca81df94b.s3tc.ctex"
+uid="uid://ch7ec5qh7ahp5"
+path.s3tc="res://.godot/imported/Anti-Virus.png-c282c8f76703ee4d44cdd9d094fc25b2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/textures/Anti-Virus.png"
-dest_files=["res://.godot/imported/Anti-Virus.png-35dbbed05a2a3670033b1d3ca81df94b.s3tc.ctex"]
+source_file="res://Models/Anti-Virus.png"
+dest_files=["res://.godot/imported/Anti-Virus.png-c282c8f76703ee4d44cdd9d094fc25b2.s3tc.ctex"]
 
 [params]
 
