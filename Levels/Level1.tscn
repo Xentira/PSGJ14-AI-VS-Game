@@ -38,3 +38,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338394, 2.71053, 4.05523)
 
 [node name="Anti-Virus" parent="." instance=ExtResource("3_24kfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33718, 0.500002, 13.3488)
+state = 1
