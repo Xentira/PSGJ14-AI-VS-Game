@@ -34,8 +34,8 @@ extends CharacterBody3D
 			#animation_player.speed_scale = 1
 			#animation_player.play("Dead") # play the animation
 		#_States.IDLE:
-			##reset to default speed for animation
-#s			animation_player.speed_scale = 1
+			##reset to default speed for animations
+			#animation_player.speed_scale = 1
 			#animation_player.play("Idle") # play the animation
 		#_:
 			#print("Error Invalid State")
