@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 				#print("Cast From: " + str(castFrom), " Cast To: " + str(castTo), " Query: " + str(query) + " Result: " + str(result))
 				if ray.get_collider() == player:
 					state = States.MELEE
-				
+			move_and_slide()
 		States.MELEE:
 			if not waiting:
 				#reset to default speed for animation
@@ -79,7 +79,4 @@ func _physics_process(delta: float) -> void:
 			animation_player.speed_scale = 1
 			animation_player.play("Idle") # play the animation
 		_:
-			print("Error Invalid State")
-	
-	if not waiting:		
-		move_and_slide()
+			print("Error Invalid State")	
