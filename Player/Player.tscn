@@ -16,7 +16,7 @@ shape = SubResource("CapsuleShape3D_x6riq")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_d01xc")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.90531, 4.5475)
 
 [node name="FireParticle" parent="." instance=ExtResource("2_80jcc")]

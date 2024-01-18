@@ -1423,8 +1423,9 @@ size = Vector3(1.78903, 1, 1.54871)
 script = ExtResource("1_jf3lx")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38392e-08, 0.484138, -0.272689)
-target_position = Vector3(0, 0, 1)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38392e-08, 0.484138, -1.04655)
+target_position = Vector3(0, 0, 0.5)
+hit_from_inside = true
 
 [node name="Anti-Virus Rig" type="Node3D" parent="."]
 transform = Transform3D(-0.499999, 0, -4.37114e-08, 0, 0.5, 0, 4.37113e-08, 0, -0.5, 0, 0, 0)

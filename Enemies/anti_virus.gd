@@ -6,6 +6,7 @@ enum States {IDLE = 0, MOVING = 1, DEAD = 2, MELEE = 3}
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var waiting: bool = false
 var cam: Camera3D
+var rayLength = 10
 
 @export var state: States = States.IDLE 
 @export var speedMove = 3.5 # The moving speed.
@@ -17,11 +18,12 @@ var cam: Camera3D
 @onready var ray: RayCast3D = $RayCast3D
 
 func _onready() -> void:
-	cam = player.get_node("Player/Camera3d")
+	cam = player.get_node("Player/Camera3D")
 	
 func _physics_process(delta: float) -> void:
 	#scale = Vector3(size, size, size)
-	print(cam)
+	cam = player.get_node("../Player/Camera")
+	var space_state = get_world_3d().direct_space_state
 	#ray.target_position = player.position * -1
 	#ray.cast_to = ray.cast_to.normalized() * 3
 	# Add the gravity.
@@ -43,8 +45,15 @@ func _physics_process(delta: float) -> void:
 				var direction = (player.position - self.position).normalized()
 				velocity.x = direction.x * speedMove
 				velocity.z = direction.z * speedMove
+				
+				#var castFrom = global_transform.origin
+				#var castTo = global_transform.origin * rayLength
+				#var query = PhysicsRayQueryParameters3D.create(castFrom, castTo)
+				#var result = space_state.intersect_ray(query)
+				#print("Cast From: " + str(castFrom), " Cast To: " + str(castTo), " Query: " + str(query) + " Result: " + str(result))
 				if ray.get_collider() == player:
 					state = States.MELEE
+				
 		States.MELEE:
 			if not waiting:
 				#reset to default speed for animation
@@ -59,7 +68,8 @@ func _physics_process(delta: float) -> void:
 				else:
 					if ray.get_collider() == player:
 						waiting = false
-					waiting = true
+					else:
+						waiting = true
 		States.DEAD:
 			#reset to default speed for animation
 			animation_player.speed_scale = 1
@@ -70,5 +80,6 @@ func _physics_process(delta: float) -> void:
 			animation_player.play("Idle") # play the animation
 		_:
 			print("Error Invalid State")
-			
-	move_and_slide()
+	
+	if not waiting:		
+		move_and_slide()
