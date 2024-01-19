@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Character Test"
-run/main_scene="res://Player/Plate.tscn"
+run/main_scene="res://GUIs/MainMenuGUI.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Images/icon.svg"
 

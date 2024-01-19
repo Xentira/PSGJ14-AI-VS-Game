@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://71iwh6r6rmen"]
+
+[ext_resource type="Script" path="res://GUIs/PlayGUI.gd" id="1_mvthv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 394.0
+offset_right = 707.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 60
+text = "Play"
+script = ExtResource("1_mvthv")
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 178.0
+offset_right = 926.0
+offset_bottom = 290.0
+theme_override_font_sizes/normal_font_size = 80
+text = "Unnamed Project"
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]

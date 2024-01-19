@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnvvxqso18snr"]
+
+[ext_resource type="Texture2D" uid="uid://dlw2w407drcsi" path="res://Images/Worm.JPG" id="1_xybb7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Worm" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 521.0
+offset_right = 133.0
+offset_bottom = 615.0
+texture = ExtResource("1_xybb7")
+expand_mode = 1
+
+[node name="BlackWorm" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 0
+offset_left = 30.0
+offset_top = 512.0
+offset_right = 142.0
+offset_bottom = 624.0
+texture = ExtResource("1_xybb7")
+expand_mode = 1
+
+[node name="Black" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 125.0
+offset_top = 465.0
+offset_right = 193.0
+offset_bottom = 533.0
+texture = ExtResource("1_xybb7")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 458.0
+offset_right = 122.0
+offset_bottom = 510.0
+theme_override_font_sizes/normal_font_size = 37
+text = "Worm"
+
+[node name="1 key" type="RichTextLabel" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 142.0
+offset_top = 455.0
+offset_right = 223.0
+offset_bottom = 553.0
+theme_override_font_sizes/normal_font_size = 60
+text = "1
+"
