@@ -6,22 +6,28 @@ enum States {IDLE = 0, MOVING = 1, DEAD = 2, MELEE = 3}
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var waiting: bool = false
 var cam: Camera3D
+var rayLength = 10
 
 @export var state: States = States.IDLE 
 @export var speedMove = 3.5 # The moving speed.
 @export var gravSpeed = 5 # Set the speed value.
 @export var isGrounded = true
-@export_range(0.0, 1.0) var size = 1.0
+#used to handle on death and inactive states
+@export var active: bool = true
+@export var health: int = 100
+@export var damage: int	= 10
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
-
-func _onready() -> void:
-	cam = player.get_node("Player/Camera3d")
+	
+func _ready()-> void:
+	player.WormAttack.connect(changeHealth)	
 	
 func _physics_process(delta: float) -> void:
 	#scale = Vector3(size, size, size)
-	print(cam)
+	cam = player.get_node("../Player/Camera")
+	var space_state = get_world_3d().direct_space_state
 	#ray.target_position = player.position * -1
 	#ray.cast_to = ray.cast_to.normalized() * 3
 	# Add the gravity.
@@ -29,9 +35,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y -= gravity * delta
 	if isGrounded:
 		rotation.x = 0
-	
-	
-	
+		
 	match state:
 		States.MOVING:
 			if not waiting:
@@ -45,6 +49,7 @@ func _physics_process(delta: float) -> void:
 				velocity.z = direction.z * speedMove
 				if ray.get_collider() == player:
 					state = States.MELEE
+				move_and_slide()
 		States.MELEE:
 			if not waiting:
 				#reset to default speed for animation
@@ -59,16 +64,23 @@ func _physics_process(delta: float) -> void:
 				else:
 					if ray.get_collider() == player:
 						waiting = false
-					waiting = true
+					else:
+						waiting = true
 		States.DEAD:
-			#reset to default speed for animation
-			animation_player.speed_scale = 1
-			animation_player.play("Dead") # play the animation
+			if active:
+				#reset to default speed for animation
+				animation_player.speed_scale = 1
+				animation_player.play("Dying") # play the animation
+				active = false
 		States.IDLE:
 			#reset to default speed for animation
 			animation_player.speed_scale = 1
 			animation_player.play("Idle") # play the animation
 		_:
-			print("Error Invalid State")
-			
-	move_and_slide()
+			print("Error Invalid State")	
+
+func changeHealth(amount: int) -> void:
+	health += amount
+	if health <= 0:
+		state = States.DEAD
+	print("health changed " + str(amount) + " , " + str(health))
