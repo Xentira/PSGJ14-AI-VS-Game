@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://wpcwxgbxgfof"]
+[gd_scene load_steps=14 format=3 uid="uid://wpcwxgbxgfof"]
 
 [ext_resource type="Script" path="res://Enemies/anti_virus.gd" id="1_jf3lx"]
 [ext_resource type="Texture2D" uid="uid://ch7ec5qh7ahp5" path="res://Models/Anti-Virus.png" id="2_2q25h"]
+[ext_resource type="Script" path="res://Enemies/HealthBarText.gd" id="3_g832w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ion2"]
 resource_name = "Painted Texture"
@@ -1419,7 +1420,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_2gye0"]
 size = Vector3(1.78903, 1, 1.54871)
 
-[node name="Anti-Virus2" type="CharacterBody3D"]
+[node name="Anti-Virus" type="CharacterBody3D"]
 script = ExtResource("1_jf3lx")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -1661,3 +1662,14 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125885, 0.498879, -0.167963)
 shape = SubResource("BoxShape3D_2gye0")
+
+[node name="Health" type="Label3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.84443, 0)
+visibility_range_end = 25.0
+billboard = 1
+texture_filter = 1
+modulate = Color(0.34902, 0.631373, 0, 1)
+outline_modulate = Color(0, 0.129412, 0.133333, 1)
+text = "100
+"
+script = ExtResource("3_g832w")

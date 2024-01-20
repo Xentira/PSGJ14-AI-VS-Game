@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 enum States {IDLE = 0, MOVING = 1, DEAD = 2, MELEE = 3}
