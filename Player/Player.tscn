@@ -21,4 +21,3 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.90531
 
 [node name="FireParticle" parent="." instance=ExtResource("2_80jcc")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0975541, 0)
-visible = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dix75wa2f3ond"]
+[gd_scene load_steps=15 format=3 uid="uid://dix75wa2f3ond"]
 
 [ext_resource type="QuadMesh" uid="uid://pqavvbm1cyx3" path="res://Particles/FireParticle1.tres" id="1_5a125"]
 [ext_resource type="Texture2D" uid="uid://ckdqyfkil1uiu" path="res://Images/Fire3.png" id="2_3uflg"]
+[ext_resource type="Script" path="res://Particles/FireParticle.gd" id="2_atsqv"]
 [ext_resource type="Texture2D" uid="uid://cknvb6c3v7y5c" path="res://Images/Fire2.png" id="3_4n8nt"]
 
 [sub_resource type="Curve" id="Curve_4c6it"]
@@ -68,9 +69,10 @@ amount = 5
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_3vq61")
 draw_pass_1 = ExtResource("1_5a125")
+script = ExtResource("2_atsqv")
+enabledAll = true
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
-emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_p67om")
 draw_pass_1 = SubResource("QuadMesh_lx6o7")
@@ -81,7 +83,6 @@ light_energy = 3.0
 light_size = 10.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-emitting = false
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_p67om")
 draw_pass_1 = SubResource("QuadMesh_27gbn")
