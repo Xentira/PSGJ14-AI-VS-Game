@@ -70,7 +70,6 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_3vq61")
 draw_pass_1 = ExtResource("1_5a125")
 script = ExtResource("2_atsqv")
-enabledAll = true
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 amount = 5

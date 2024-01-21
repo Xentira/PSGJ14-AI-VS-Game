@@ -18,6 +18,7 @@ var rayLength = 10
 @export var health: int = 100
 @export var damage: int	= 10
 
+@onready var health_bar: ProgressBar = $SubViewport/HealthBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
@@ -32,6 +33,9 @@ func _physics_process(delta: float) -> void:
 	#ray.target_position = player.position * -1
 	#ray.cast_to = ray.cast_to.normalized() * 3
 	# Add the gravity.
+	
+	health_bar.value = health
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if isGrounded:
