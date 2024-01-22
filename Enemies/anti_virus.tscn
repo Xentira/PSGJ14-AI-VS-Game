@@ -1437,6 +1437,7 @@ size = Vector3(1.78903, 1, 1.54871)
 viewport_path = NodePath("SubViewport")
 
 [node name="Anti-Virus" type="CharacterBody3D"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 script = ExtResource("1_jf3lx")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -1696,6 +1697,7 @@ disable_3d = true
 transparent_bg = true
 
 [node name="HealthBar" parent="SubViewport" instance=ExtResource("4_m3ysb")]
+show_percentage = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80786, 0)
