@@ -22,6 +22,7 @@ var rayLength = 10
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 	
 func _ready()-> void:
 	player.WormAttack.connect(changeHealth)	
@@ -77,6 +78,11 @@ func _physics_process(delta: float) -> void:
 				animation_player.speed_scale = 1
 				animation_player.play("Dying") # play the animation
 				active = false
+				await get_tree().create_timer(1).timeout
+				health_bar.visible = false
+				collision_shape_3d.disabled = true
+				await get_tree().create_timer(2).timeout
+				queue_free()
 		States.IDLE:
 			#reset to default speed for animation
 			animation_player.speed_scale = 1
