@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4l8b06071s1t"]
+[gd_scene load_steps=10 format=3 uid="uid://b4l8b06071s1t"]
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="2_pqnr6"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="3_24kfy"]
 [ext_resource type="PackedScene" uid="uid://dnvvxqso18snr" path="res://GUIs/MainGUI.tscn" id="4_rbpsl"]
 [ext_resource type="PackedScene" uid="uid://beoacsrisj1mr" path="res://Game Manager/game_manager.tscn" id="5_82dl4"]
+[ext_resource type="PackedScene" uid="uid://b827qxbbd5rg4" path="res://Enemies/firewall.tscn" id="6_qcd41"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tswcb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,7 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338394, 2.71053, 4.05523)
 
 [node name="Anti-Virus" parent="." instance=ExtResource("3_24kfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01979, 0.500002, 13.3488)
-state = 1
 
 [node name="Control" parent="." instance=ExtResource("4_rbpsl")]
 offset_top = 528.0
@@ -48,3 +48,7 @@ offset_right = -1004.0
 size_flags_horizontal = 0
 
 [node name="GameManager" parent="." instance=ExtResource("5_82dl4")]
+
+[node name="Firewall" parent="." instance=ExtResource("6_qcd41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.278, 3.27539, 10.769)
+state = 1

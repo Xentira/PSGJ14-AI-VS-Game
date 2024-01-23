@@ -1,6 +1,7 @@
 extends Node3D
 
 const ANTI_VIRUS = preload("res://Enemies/anti_virus.tscn")
+const FLY = preload("res://Enemies/fly.tscn")	
 
 var antiVirus
 
@@ -13,8 +14,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func spawnAntiVirusGroup(amount: int) -> void:
+func spawnAntiVirusGroup(amount: int, center: Vector3, radius: float) -> void:
 	antiVirus = ANTI_VIRUS.instantiate()
+	
 	antiVirus.position.y = 0.5
 	await get_tree().create_timer(2.5).timeout
 	get_parent_node_3d().add_child(antiVirus)

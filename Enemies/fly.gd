@@ -12,7 +12,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
-	
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	pass

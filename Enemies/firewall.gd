@@ -1,7 +1,7 @@
-class_name Virus
+#class_name Virus
 extends CharacterBody3D
 
-enum States {IDLE = 0, MOVING = 1, DEAD = 2, MELEE = 3}
+enum States {IDLE = 0, MOVING = 1, DEAD = 2, HUNKER = 3}
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -9,7 +9,7 @@ var waiting: bool = false
 var cam: Camera3D
 var rayLength = 10
 
-@export var state: States = States.MOVING 
+@export var state: States = States.IDLE 
 @export var speedMove = 3.5 # The moving speed.
 @export var gravSpeed = 5 # Set the speed value.
 @export var isGrounded = true
@@ -54,29 +54,29 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction.x * speedMove
 				velocity.z = direction.z * speedMove
 				if ray.get_collider() == player:
-					state = States.MELEE
+					state = States.HUNKER
 				move_and_slide()
-		States.MELEE:
+		States.HUNKER:
 			if not waiting:
 				#reset to default speed for animation
 				animation_player.speed_scale = 1
-				animation_player.play("Melee") # play the animation
+				animation_player.play("Hunker Down") # play the animation
 				waiting = true
 			
-			if animation_player.is_playing() == false:
-				if ray.get_collider() != player:
-					state = States.MOVING
-					waiting = false
-				else:
-					if ray.get_collider() == player:
-						waiting = false
-					else:
-						waiting = true
+			#if animation_player.is_playing() == false:
+				#if ray.get_collider() != player:
+					#state = States.MOVING
+					#waiting = false
+				#else:
+					#if ray.get_collider() == player:
+						#waiting = false
+					#else:
+						#waiting = true
 		States.DEAD:
 			if active:
 				#reset to default speed for animation
 				animation_player.speed_scale = 1
-				animation_player.play("Dying") # play the animation
+				animation_player.play("Death") # play the animation
 				active = false
 				health_bar.visible = false
 				collision_shape_3d.disabled = true
