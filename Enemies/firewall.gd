@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 				animation_player.speed_scale = 1
 				animation_player.play("Hunker Down") # play the animation
 				waiting = true
-			
+		
 			#if animation_player.is_playing() == false:
 				#if ray.get_collider() != player:
 					#state = States.MOVING
