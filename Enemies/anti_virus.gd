@@ -1,3 +1,4 @@
+class_name Virus
 extends CharacterBody3D
 
 enum States {IDLE = 0, MOVING = 1, DEAD = 2, MELEE = 3}
@@ -17,9 +18,11 @@ var rayLength = 10
 @export var health: int = 100
 @export var damage: int	= 10
 
+@onready var health_bar: ProgressBar = $SubViewport/HealthBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 	
 func _ready()-> void:
 	player.WormAttack.connect(changeHealth)	
@@ -31,6 +34,9 @@ func _physics_process(delta: float) -> void:
 	#ray.target_position = player.position * -1
 	#ray.cast_to = ray.cast_to.normalized() * 3
 	# Add the gravity.
+	
+	health_bar.value = health
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	if isGrounded:
@@ -72,6 +78,11 @@ func _physics_process(delta: float) -> void:
 				animation_player.speed_scale = 1
 				animation_player.play("Dying") # play the animation
 				active = false
+				await get_tree().create_timer(1).timeout
+				health_bar.visible = false
+				collision_shape_3d.disabled = true
+				await get_tree().create_timer(2).timeout
+				queue_free()
 		States.IDLE:
 			#reset to default speed for animation
 			animation_player.speed_scale = 1

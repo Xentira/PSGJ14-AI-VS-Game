@@ -25,6 +25,5 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("1"):
 		WormAttack.emit(-10)
-		print("WormAttack Emitted")
 
 	move_and_slide()
