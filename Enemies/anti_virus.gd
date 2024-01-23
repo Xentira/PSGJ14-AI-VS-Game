@@ -78,10 +78,9 @@ func _physics_process(delta: float) -> void:
 				animation_player.speed_scale = 1
 				animation_player.play("Dying") # play the animation
 				active = false
-				await get_tree().create_timer(1).timeout
 				health_bar.visible = false
 				collision_shape_3d.disabled = true
-				await get_tree().create_timer(2).timeout
+				await get_tree().create_timer(2.5).timeout
 				queue_free()
 		States.IDLE:
 			#reset to default speed for animation

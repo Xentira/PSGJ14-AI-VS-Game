@@ -24,6 +24,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	if Input.is_action_just_pressed("1"):
-		WormAttack.emit(-10)
+		WormAttack.emit(-100)
 
 	move_and_slide()
