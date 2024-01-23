@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b7wgbpkyqleqy" path="res://Models/textures/FireWallShell.png" id="1_vth3y"]
 [ext_resource type="Script" path="res://Enemies/firewall.gd" id="1_vxptk"]
 [ext_resource type="Texture2D" uid="uid://d3pfuk8u50hs" path="res://Models/textures/FireWall.png" id="2_yol1g"]
-[ext_resource type="PackedScene" uid="uid://ci8wvy3di2rug" path="res://GUIs/health_bar3D.tscn" id="4_yky8x"]
+[ext_resource type="PackedScene" uid="uid://dvc77kaesd8ja" path="res://GUIs/health_bar3D.tscn" id="4_yky8x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6yvey"]
 size = Vector3(3.80811, 2.93307, 5.05692)
@@ -1412,5 +1412,5 @@ libraries = {
 }
 
 [node name="HealthBar" parent="." instance=ExtResource("4_yky8x")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 0.982409, -0.389627)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 1, -0.4)
 texture = SubResource("ViewportTexture_b2epi")

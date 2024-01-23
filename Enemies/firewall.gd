@@ -26,6 +26,10 @@ var rayLength = 10
 	
 func _ready()-> void:
 	player.WormAttack.connect(changeHealth)	
+	if health_bar != null:
+		health_bar.value = health
+	else:
+		print("healthbar error , " + str(health_bar))
 	
 func _physics_process(delta: float) -> void:
 	#scale = Vector3(size, size, size)
@@ -34,8 +38,6 @@ func _physics_process(delta: float) -> void:
 	#ray.target_position = player.position * -1
 	#ray.cast_to = ray.cast_to.normalized() * 3
 	# Add the gravity.
-	
-	health_bar.value = health
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -91,6 +93,7 @@ func _physics_process(delta: float) -> void:
 
 func changeHealth(amount: int) -> void:
 	health += amount
+	health_bar.value = health
 	if health <= 0:
 		state = States.DEAD
 	print("health changed " + str(amount) + " , " + str(health))
