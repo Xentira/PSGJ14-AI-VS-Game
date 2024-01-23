@@ -16,9 +16,9 @@ var rayLength = 10
 #used to handle on death and inactive states
 @export var active: bool = true
 @export var health: int = 100
-@export var damage: int	= 10
+@export var damage: int = 10
 
-@onready var health_bar: ProgressBar = $SubViewport/HealthBar
+@onready var health_bar: ProgressBar = $HealthBar/SubViewport2/HealthBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
