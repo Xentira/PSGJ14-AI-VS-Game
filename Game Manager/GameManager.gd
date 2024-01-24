@@ -5,11 +5,15 @@ const FLY = preload("res://Enemies/fly.tscn")
 
 var antiVirus
 
+var spawnListener
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	await  get_tree().create_timer(2).timeout
-	spawnAntiVirusGroup(100, Vector3(0,0,0), 30)
+	#spawnListener = get_parent().get_node("fly")
+	#spawnListener.connect("spawnAntiVirus", self, "spawnAntiVirusGroup")
+	#await  get_tree().create_timer(2).timeout
+	#spawnAntiVirusGroup(100, Vector3(0,0,0), 30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

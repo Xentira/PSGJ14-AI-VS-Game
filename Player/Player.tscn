@@ -8,6 +8,8 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_d01xc"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 32768
+collision_mask = 32768
 script = ExtResource("1_paquu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

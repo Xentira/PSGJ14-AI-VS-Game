@@ -1158,6 +1158,7 @@ script = ExtResource("1_vxptk")
 [node name="RayCast3D" type="RayCast3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.67238e-07, -0.174474, -2.3061)
 target_position = Vector3(0, 0, 5)
+collision_mask = 32769
 hit_from_inside = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

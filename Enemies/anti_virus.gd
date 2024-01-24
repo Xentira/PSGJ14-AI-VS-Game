@@ -96,4 +96,4 @@ func changeHealth(amount: int) -> void:
 	health_bar.value = health
 	if health <= 0:
 		state = States.DEAD
-	print("health changed " + str(amount) + " , " + str(health))
+	#print("health changed " + str(amount) + " , " + str(health))

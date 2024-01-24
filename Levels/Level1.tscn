@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4l8b06071s1t"]
+[gd_scene load_steps=11 format=3 uid="uid://b4l8b06071s1t"]
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="2_pqnr6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnvvxqso18snr" path="res://GUIs/MainGUI.tscn" id="4_rbpsl"]
 [ext_resource type="PackedScene" uid="uid://beoacsrisj1mr" path="res://Game Manager/game_manager.tscn" id="5_82dl4"]
 [ext_resource type="PackedScene" uid="uid://b827qxbbd5rg4" path="res://Enemies/firewall.tscn" id="6_qcd41"]
+[ext_resource type="PackedScene" uid="uid://g1nqyt7d8qor" path="res://Enemies/fly.tscn" id="7_x5xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tswcb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,6 +33,8 @@ shadow_enabled = true
 [node name="BaseTiles" type="GridMap" parent="."]
 mesh_library = ExtResource("1_3r2uw")
 cell_size = Vector3(16, 1, 16)
+collision_layer = 32769
+collision_mask = 32769
 data = {
 "cells": PackedInt32Array(65535, 0, 0, 65535, 1, 0, 65535, 2, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 65535, 0, 1, 1, 0, 1, 2, 0, 65534, 2, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 2, 2, 0, 2, 1, 0, 2, 0, 0, 2, 65535, 0, 2, 65534, 0, 1, 65534, 0, 0, 65534, 0, 65535, 65534, 0, 65534, 65534, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65533, 2, 0, 3, 65533, 0, 2, 65533, 0, 1, 65533, 0, 0, 65533, 0, 65535, 65533, 0, 65534, 65533, 0, 65533, 65533, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 2, 0, 65532, 1, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0)
 }
@@ -40,7 +43,7 @@ data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338394, 2.71053, 4.05523)
 
 [node name="Anti-Virus" parent="." instance=ExtResource("3_24kfy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01979, 0.500002, 13.3488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02, 0.5, 13.349)
 
 [node name="Control" parent="." instance=ExtResource("4_rbpsl")]
 offset_top = 528.0
@@ -50,5 +53,9 @@ size_flags_horizontal = 0
 [node name="GameManager" parent="." instance=ExtResource("5_82dl4")]
 
 [node name="Firewall" parent="." instance=ExtResource("6_qcd41")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.278, 3.27539, 10.769)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.278, 2.5, 10.769)
+state = 1
+
+[node name="fly" parent="." instance=ExtResource("7_x5xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.547, 3, 6.974)
 state = 1

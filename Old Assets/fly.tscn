@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4k75o04ws3d6"]
+
+[ext_resource type="Script" path="res://Old Assets/fly.gd" id="1_8qaau"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xjona"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8q6s"]
+
+[node name="Fly" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+script = ExtResource("1_8qaau")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xjona")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_v8q6s")
