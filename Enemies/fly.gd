@@ -2,15 +2,15 @@ extends CharacterBody3D
 
 enum States {IDLE = 0, MOVING = 1, DEAD = 2, SPOTTED = 3}
 
-signal spawnAntiVirus(amount: int, center: Vector3, radius: float)
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@export var state: States = States.DEAD
+@export var state: States = States.IDLE
 @export var speedMove = 3.5 # The moving speed.
 @export var gravSpeed = 5 # Set the speed value.
 @export var isGrounded = false
+@export var justSpawned = false;
+@export var spawnDelay = 4.0
 
 #@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
@@ -47,13 +47,30 @@ func _physics_process(delta: float) -> void:
 			#reset to default speed for animation
 			animation_player.speed_scale = 1
 			animation_player.play("Idle") # play the animation
-			pass
+		States.SPOTTED:
+			await get_tree().create_timer(2).timeout
+			state = States.IDLE
+			velocity = Vector3.ZERO
 		_:
 			print("Error Invalid State")
 			
 	move_and_slide()
 
 func _on_spotting_area_body_entered(body: Node3D) -> void:
-	if(body == player):
+	state = States.SPOTTED
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = spawnDelay
+	timer.connect("timeout", allowSpawning)
+	if(body == player) and not justSpawned:
 		gameManager.spawnAntiVirusGroup(5, self.position, 30)
-	#spawnAntiVirus.emit(5, self.position, 30)
+		justSpawned = true
+		timer.start()
+
+func _on_spotting_area_body_exited(body: Node3D) -> void:
+	if body == player:
+		state = States.MOVING
+
+func allowSpawning() -> void:
+	justSpawned = false
+	#print("spawing renabled")

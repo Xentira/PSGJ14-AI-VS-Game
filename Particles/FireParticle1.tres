@@ -13,5 +13,5 @@ billboard_mode = 1
 billboard_keep_scale = true
 
 [resource]
-lightmap_size_hint = Vector2i(5, 5)
+lightmap_size_hint = Vector2i(7, 7)
 material = SubResource("StandardMaterial3D_xtdbc")
