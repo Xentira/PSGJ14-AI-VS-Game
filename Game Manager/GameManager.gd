@@ -23,7 +23,7 @@ func spawnAntiVirusGroup(amount: int, center: Vector3, radius: float) -> void:
 	#Calculate the positions of the enemies to place
 	var count = amount
 	while count >= 0:
-		print("Enemy: " + str(count+1)+ " of " + str(amount))
+		#print("Enemy: " + str(count+1)+ " of " + str(amount))
 		antiVirus = ANTI_VIRUS.instantiate()
 		var spawnPos = Vector3(randf_range(center.x - radius/2,center.x + radius/2),
 					   1,

@@ -1312,8 +1312,8 @@ shape = SubResource("BoxShape3D_t1y2q")
 
 [node name="SpottingArea" type="Area3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.597683)
-collision_layer = 32769
-collision_mask = 32769
+collision_layer = 32768
+collision_mask = 32768
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SpottingArea"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.814512, 4.70798)

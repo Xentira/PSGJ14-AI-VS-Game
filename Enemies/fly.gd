@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 			animation_player.speed_scale = 1
 			animation_player.play("Idle") # play the animation
 		States.SPOTTED:
-			await get_tree().create_timer(2).timeout
+			#await get_tree().create_timer(2).timeout
 			state = States.IDLE
 			velocity = Vector3.ZERO
 		_:
@@ -57,15 +57,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_spotting_area_body_entered(body: Node3D) -> void:
-	state = States.SPOTTED
-	var timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = spawnDelay
-	timer.connect("timeout", allowSpawning)
-	if(body == player) and not justSpawned:
-		gameManager.spawnAntiVirusGroup(5, self.position, 30)
-		justSpawned = true
-		timer.start()
+	if body == player:
+		if state == States.IDLE or state == States.MOVING:
+			state = States.SPOTTED
+		var timer = Timer.new()
+		add_child(timer)
+		timer.wait_time = spawnDelay
+		timer.connect("timeout", allowSpawning)
+		if(body == player) and not justSpawned:
+			gameManager.spawnAntiVirusGroup(5, self.position, 30)
+			justSpawned = true
+			timer.start()
 
 func _on_spotting_area_body_exited(body: Node3D) -> void:
 	if body == player:

@@ -58,4 +58,3 @@ state = 1
 
 [node name="fly" parent="." instance=ExtResource("7_x5xkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.547, 3, 6.974)
-state = 1
