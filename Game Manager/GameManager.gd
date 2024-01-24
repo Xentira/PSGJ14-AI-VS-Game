@@ -7,16 +7,24 @@ var antiVirus
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-
+	randomize()
+	await  get_tree().create_timer(2).timeout
+	spawnAntiVirusGroup(100, Vector3(0,0,0), 30)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func spawnAntiVirusGroup(amount: int, center: Vector3, radius: float) -> void:
-	antiVirus = ANTI_VIRUS.instantiate()
-	
-	antiVirus.position.y = 0.5
-	await get_tree().create_timer(2.5).timeout
-	get_parent_node_3d().add_child(antiVirus)
+	#Calculate the positions of the enemies to place
+	var count = amount
+	while count >= 0:
+		print("Enemy: " + str(count+1)+ " of " + str(amount))
+		antiVirus = ANTI_VIRUS.instantiate()
+		var spawnPos = Vector3(randf_range(center.x - radius/2,center.x + radius/2),
+					   1,
+					   randf_range(center.z - radius/2, center.z + radius/2))
+		antiVirus.position = spawnPos
+		get_parent_node_3d().add_child(antiVirus)
+		count -= 1
+		await get_tree().create_timer(.1).timeout

@@ -15,6 +15,14 @@ run/main_scene="res://GUIs/MainMenuGUI.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Images/icon.svg"
 
+[autoload]
+
+DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
+
 [input]
 
 ui_left={

@@ -17,7 +17,8 @@ shape = SubResource("CapsuleShape3D_x6riq")
 mesh = SubResource("CapsuleMesh_d01xc")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.90531, 4.5475)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 20, 11.2764)
+current = true
 
 [node name="FireParticle" parent="." instance=ExtResource("2_80jcc")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0975541, 0)
