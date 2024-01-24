@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4l8b06071s1t"]
+[gd_scene load_steps=12 format=3 uid="uid://b4l8b06071s1t"]
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
+[ext_resource type="MeshLibrary" uid="uid://drjrhs00jmmxj" path="res://MeshLibs/PathTiles.tres" id="1_ihxeo"]
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="2_pqnr6"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="3_24kfy"]
 [ext_resource type="PackedScene" uid="uid://dnvvxqso18snr" path="res://GUIs/MainGUI.tscn" id="4_rbpsl"]
@@ -29,6 +30,12 @@ environment = SubResource("Environment_8uqvw")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+
+[node name="Path" type="GridMap" parent="."]
+mesh_library = ExtResource("1_ihxeo")
+data = {
+"cells": PackedInt32Array(65535, 65519, 14, 65534, 65525, 1, 65438, 85, 10, 65535, 65509, 0, 65535, 65508, 0, 65535, 65507, 0, 65535, 65506, 0, 0, 65505, 0, 0, 65504, 0, 0, 65503, 0, 0, 65502, 0, 0, 65501, 0, 0, 65500, 0, 1, 65500, 0, 1, 65499, 0, 1, 65498, 0, 1, 65497, 0, 1, 65496, 0, 1, 65495, 0, 0, 65525, 0, 65535, 65526, 0, 65531, 65524, 0, 65531, 65525, 0, 65531, 65526, 0)
+}
 
 [node name="BaseTiles" type="GridMap" parent="."]
 mesh_library = ExtResource("1_3r2uw")
