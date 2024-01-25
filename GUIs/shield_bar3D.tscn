@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b47kl6smyegjt"]
+[gd_scene load_steps=3 format=3 uid="uid://b7b6rwmcoe47d"]
 
 [ext_resource type="PackedScene" uid="uid://phth7mraliix" path="res://GUIs/shield_bar.tscn" id="1_ojt0s"]
 

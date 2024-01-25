@@ -1271,7 +1271,7 @@ bones/27/rotation = Quaternion(0, 0.707107, 0.707107, 0)
 bones/27/scale = Vector3(1, 1, 1)
 
 [node name="Cylinder_005" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.20699e-06, 0, 1.20699e-06, 1, 0.571671, 0.630686, -0.149493)
+transform = Transform3D(1, 0, 0, 0, 1, -1.86265e-06, 0, 1.86265e-06, 1, 0.571671, 0.630686, -0.149493)
 bone_name = "Cylinder.005"
 bone_idx = 19
 
@@ -1280,7 +1280,7 @@ mesh = SubResource("ArrayMesh_g4yw8")
 skeleton = NodePath("")
 
 [node name="Cylinder_004" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.20699e-06, 0, 1.20699e-06, 1, -0.571671, 0.630686, -0.149493)
+transform = Transform3D(1, 0, 0, 0, 1, -1.86265e-06, 0, 1.86265e-06, 1, -0.571671, 0.630686, -0.149493)
 bone_name = "Cylinder.004"
 bone_idx = 21
 
@@ -1289,7 +1289,7 @@ mesh = SubResource("ArrayMesh_ly5w1")
 skeleton = NodePath("")
 
 [node name="Cylinder" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.19209e-06, 0, 1.19209e-06, 1, -2.63875e-08, 0.630684, -0.149494)
+transform = Transform3D(1, 0, 0, 0, 1, -1.2517e-06, 0, 1.2517e-06, 1, -2.63875e-08, 0.630684, -0.149494)
 bone_name = "Cylinder"
 bone_idx = 22
 
