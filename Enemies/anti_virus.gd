@@ -16,16 +16,22 @@ var rayLength = 10
 #used to handle on death and inactive states
 @export var active: bool = true
 @export var health: int = 100
-@export var damage: int	= 10
+@export var shield: int = 100
+@export var damage: int = 10
 
 @onready var health_bar: ProgressBar = $HealthBar/SubViewport2/HealthBar
+@onready var shield_bar: ProgressBar = $HealthBar/SubViewport2/ShieldBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 	
 func _ready()-> void:
-	player.WormAttack.connect(changeHealth)	
+	health_bar.max_value = health
+	health_bar.value = health
+	shield_bar.max_value = shield
+	shield_bar.value = shield
+	player.WormAttack.connect(changeHealth)
 	if health_bar != null:
 		health_bar.value = health
 	else:
@@ -92,8 +98,14 @@ func _physics_process(delta: float) -> void:
 			print("Error Invalid State")	
 
 func changeHealth(amount: int) -> void:
-	health += amount
-	health_bar.value = health
-	if health <= 0:
-		state = States.DEAD
+	if shield_bar.visible == true:
+		shield += amount
+		shield_bar.value = shield
+		if shield <= 0:
+			shield_bar.visible = false
+	else:
+		health += amount
+		health_bar.value = health
+		if health <= 0:
+			state = States.DEAD
 	#print("health changed " + str(amount) + " , " + str(health))

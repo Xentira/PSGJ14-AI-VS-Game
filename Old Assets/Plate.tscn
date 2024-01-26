@@ -38,6 +38,7 @@ environment = SubResource("Environment_p87ns")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
+collision_layer = 32769
 size = Vector3(24.6, 1, 23)
 material = SubResource("StandardMaterial3D_j3h1d")
 
@@ -67,4 +68,3 @@ speedMove = 2.0
 
 [node name="Fly" parent="." instance=ExtResource("6_spp0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11398, 3.83164, 3.70765)
-state = 1

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Enemies/fly.gd" id="1_8qaau"]
 [ext_resource type="Texture2D" uid="uid://b1ug3tlp86m6k" path="res://Models/textures/Propeller Texture.png" id="2_wyxgq"]
-[ext_resource type="Texture2D" uid="uid://cpo1lpdf8jfqv" path="res://Models/textures/Fly Ring and Connector.png" id="3_dvjmv"]
-[ext_resource type="Texture2D" uid="uid://c0gk6mbvs2jes" path="res://Models/textures/Fly Body.png" id="4_w1gvl"]
+[ext_resource type="Texture2D" uid="uid://b703es0cl7eax" path="res://Models/textures/Fly Ring and Connector.png" id="3_dvjmv"]
+[ext_resource type="Texture2D" uid="uid://bevsyvqafnny0" path="res://Models/textures/Fly Body.png" id="4_w1gvl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5e132"]
 resource_name = "Propeller"
