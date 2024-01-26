@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxoiv7a745hox"]
+[gd_scene load_steps=14 format=3 uid="uid://cxoiv7a745hox"]
 
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="1_wk25d"]
 [ext_resource type="Script" path="res://Old Assets/Enemy.gd" id="2_hpho0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://Particles/FireParticle.tscn" id="4_gqhdc"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="5_xxkw4"]
 [ext_resource type="PackedScene" uid="uid://c4k75o04ws3d6" path="res://Old Assets/fly.tscn" id="6_spp0y"]
+[ext_resource type="PackedScene" uid="uid://ktq6vg2gycry" path="res://Particles/pivot.tscn" id="7_cqq1x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_11jrc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -65,6 +66,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.340
 [node name="AntiVirus" parent="." instance=ExtResource("5_xxkw4")]
 transform = Transform3D(-0.997808, -0.00327584, 0.0660929, -0.00320272, 0.999994, 0.00121218, -0.0660965, 0.000997824, -0.997813, 1.75126, 2.75751, -7.11867)
 speedMove = 2.0
+
+[node name="Pivot" parent="AntiVirus" instance=ExtResource("7_cqq1x")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.5, 0)
+rotationSpeed = 3
 
 [node name="Fly" parent="." instance=ExtResource("6_spp0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11398, 3.83164, 3.70765)

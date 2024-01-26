@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://ktq6vg2gycry"]
+
+[ext_resource type="Script" path="res://Pivot.gd" id="1_5eq8n"]
+[ext_resource type="Texture2D" uid="uid://b3xp8vdjthreh" path="res://Images/Fire - Copy.png" id="2_3mxbb"]
+[ext_resource type="Texture2D" uid="uid://cknvb6c3v7y5c" path="res://Images/Fire2.png" id="3_7orj6"]
+[ext_resource type="Texture2D" uid="uid://ckdqyfkil1uiu" path="res://Images/Fire3.png" id="4_noyq8"]
+
+[node name="Pivot" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.5, 0)
+script = ExtResource("1_5eq8n")
+
+[node name="Fire1" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.5, 0, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_3mxbb")
+
+[node name="Fire2" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -0.5)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_7orj6")
+
+[node name="Fire3" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0.5)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("4_noyq8")
+
+[node name="Fire4" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.5, 0, 0)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_3mxbb")
+
+[node name="Fire5" type="Sprite3D" parent="."]
+transform = Transform3D(1.1356, 0, 0.980012, 0, 1.5, 0, -0.980012, 0, 1.1356, 0.378532, 0, -0.326671)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_3mxbb")
+
+[node name="Fire6" type="Sprite3D" parent="."]
+transform = Transform3D(1.1356, 0, 0.980012, 0, 1.5, 0, -0.980012, 0, 1.1356, -0.326671, 0, -0.378532)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("3_7orj6")
+
+[node name="Fire7" type="Sprite3D" parent="."]
+transform = Transform3D(1.1356, 0, 0.980012, 0, 1.5, 0, -0.980012, 0, 1.1356, 0.326671, 0, 0.378532)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("4_noyq8")
+
+[node name="Fire8" type="Sprite3D" parent="."]
+transform = Transform3D(1.1356, 0, 0.980012, 0, 1.5, 0, -0.980012, 0, 1.1356, -0.378532, 0, 0.326671)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_3mxbb")
