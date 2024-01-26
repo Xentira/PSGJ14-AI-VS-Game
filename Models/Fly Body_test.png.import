@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b703es0cl7eax"
-path="res://.godot/imported/Fly Ring and Connector.png-ff7de5c433a43c1e40a0a91c9c51eba2.ctex"
+uid="uid://bo7seawocrw5h"
+path="res://.godot/imported/Fly Body_test.png-f693782ca4777d6378272725f28f2170.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Fly Ring and Connector.png"
-dest_files=["res://.godot/imported/Fly Ring and Connector.png-ff7de5c433a43c1e40a0a91c9c51eba2.ctex"]
+source_file="res://Models/Fly Body_test.png"
+dest_files=["res://.godot/imported/Fly Body_test.png-f693782ca4777d6378272725f28f2170.ctex"]
 
 [params]
 
