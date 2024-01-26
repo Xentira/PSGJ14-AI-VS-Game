@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5tnnfsws8abe"]
+[gd_scene load_steps=4 format=3 uid="uid://b5tnnfsws8abe"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_paquu"]
-[ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://Particles/FireParticle.tscn" id="2_80jcc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x6riq"]
 
@@ -21,6 +20,3 @@ mesh = SubResource("CapsuleMesh_d01xc")
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 20, 11.2764)
 current = true
-
-[node name="FireParticle" parent="." instance=ExtResource("2_80jcc")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0975541, 0)
