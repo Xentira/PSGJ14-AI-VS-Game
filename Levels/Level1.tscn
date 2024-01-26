@@ -2,10 +2,10 @@
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
 [ext_resource type="MeshLibrary" uid="uid://tpfnsko3ly3q" path="res://MeshLibs/GroundPathTiles.tres" id="1_6oh0e"]
-[ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="2_pqnr6"]
 [ext_resource type="MeshLibrary" uid="uid://d2v8bp3gp1wvw" path="res://MeshLibs/Decorations.tres" id="3_u2bbj"]
 [ext_resource type="PackedScene" uid="uid://dnvvxqso18snr" path="res://GUIs/MainGUI.tscn" id="4_rbpsl"]
 [ext_resource type="PackedScene" uid="uid://beoacsrisj1mr" path="res://Game Manager/game_manager.tscn" id="5_82dl4"]
+[ext_resource type="PackedScene" uid="uid://dbeb0kpa4uj8g" path="res://Player/PlayerNew.tscn" id="7_ypg7k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tswcb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,12 +56,12 @@ data = {
 "cells": PackedInt32Array(65517, 0, 1441795, 65508, 15, 1441795, 65522, 19, 1441793, 65510, 7, 1441793, 65507, 0, 1441796, 65516, 65531, 1441794, 65533, 19, 655363, 65521, 25, 655363, 5, 13, 1441796, 65526, 65534, 1441796, 65524, 26, 655360, 5, 34, 1048576, 65535, 28, 1048579, 65518, 30, 655364, 65521, 31, 655360, 65514, 21, 1048576, 12, 0, 1441796, 13, 3, 1441795, 65519, 41, 1048576, 12, 12, 1048577, 65512, 40, 1048580, 65510, 65519, 1441795, 4, 65521, 1441794, 65515, 65514, 1441794, 7, 65523, 1441796, 65510, 65529, 655360, 1, 65516, 655363, 65513, 65529, 655361, 65516, 65516, 655364, 65531, 65505, 655361, 65533, 65503, 655363, 65514, 65506, 655363, 0, 65509, 655364, 65524, 65527, 1048580, 65527, 65530, 1048580, 65527, 65527, 1441792, 65524, 65530, 1048576, 65508, 38, 1048577, 65509, 43, 1048580, 65508, 40, 1048580, 65507, 30, 1048579, 65507, 35, 1048576, 65531, 43, 1048579, 65526, 30, 1048578, 65533, 23, 1441792, 65488, 41, 1441793, 65490, 27, 1441793, 65485, 32, 1441796, 65472, 65, 1441796, 65521, 48, 1441796, 14, 65511, 1441795, 40, 52, 1441795, 43, 52, 0, 45, 49, 1048576, 16, 64, 1048580, 19, 65, 1048576, 17, 68, 655361, 20, 59, 655363, 65464, 65499, 1441793, 65468, 65502, 1441796, 65468, 65504, 1048576, 65493, 65465, 1048579, 65498, 65463, 1048577, 65493, 65470, 1048580, 65496, 62, 1048580, 65485, 62, 1048579, 65491, 57, 1048577, 65469, 67, 1048577, 65475, 57, 1048578, 12, 16, 1310720, 73, 28, 1441792, 69, 25, 1441795, 78, 28, 1441794, 49, 65524, 655363, 42, 65528, 655361, 49, 65519, 655364, 46, 65526, 655364, 65524, 65467, 1441792, 65521, 65474, 1441795, 65526, 65471, 1441794, 65519, 65467, 1441793, 48, 65480, 1441793, 43, 65475, 1441792, 38, 65484, 1441796, 39, 65485, 1441796)
 }
 
-[node name="Player" parent="." instance=ExtResource("2_pqnr6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338394, 2.71053, 4.05523)
-
 [node name="Control" parent="." instance=ExtResource("4_rbpsl")]
 offset_top = 528.0
 offset_right = -1004.0
 size_flags_horizontal = 0
 
 [node name="GameManager" parent="." instance=ExtResource("5_82dl4")]
+
+[node name="Player" parent="." instance=ExtResource("7_ypg7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
