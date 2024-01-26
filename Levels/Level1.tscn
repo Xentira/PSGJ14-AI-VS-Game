@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4l8b06071s1t"]
+[gd_scene load_steps=13 format=3 uid="uid://b4l8b06071s1t"]
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
-[ext_resource type="MeshLibrary" uid="uid://drjrhs00jmmxj" path="res://MeshLibs/PathTiles.tres" id="1_ihxeo"]
+[ext_resource type="MeshLibrary" uid="uid://tpfnsko3ly3q" path="res://MeshLibs/GroundPathTiles.tres" id="1_6oh0e"]
 [ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="2_pqnr6"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="3_24kfy"]
+[ext_resource type="MeshLibrary" uid="uid://d2v8bp3gp1wvw" path="res://MeshLibs/Decorations.tres" id="3_u2bbj"]
 [ext_resource type="PackedScene" uid="uid://dnvvxqso18snr" path="res://GUIs/MainGUI.tscn" id="4_rbpsl"]
 [ext_resource type="PackedScene" uid="uid://beoacsrisj1mr" path="res://Game Manager/game_manager.tscn" id="5_82dl4"]
 [ext_resource type="PackedScene" uid="uid://b827qxbbd5rg4" path="res://Enemies/firewall.tscn" id="6_qcd41"]
@@ -31,19 +32,29 @@ environment = SubResource("Environment_8uqvw")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Path" type="GridMap" parent="."]
-mesh_library = ExtResource("1_ihxeo")
+[node name="Gridmaps" type="Node3D" parent="."]
+
+[node name="Paths" type="GridMap" parent="Gridmaps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
+mesh_library = ExtResource("1_6oh0e")
 data = {
-"cells": PackedInt32Array(65535, 65519, 14, 65534, 65525, 1, 65438, 85, 10, 65535, 65509, 0, 65535, 65508, 0, 65535, 65507, 0, 65535, 65506, 0, 0, 65505, 0, 0, 65504, 0, 0, 65503, 0, 0, 65502, 0, 0, 65501, 0, 0, 65500, 0, 1, 65500, 0, 1, 65499, 0, 1, 65498, 0, 1, 65497, 0, 1, 65496, 0, 1, 65495, 0, 0, 65525, 0, 65535, 65526, 0, 65531, 65524, 0, 65531, 65525, 0, 65531, 65526, 0)
+"cells": PackedInt32Array(65534, 5, 1048576, 65533, 5, 1048580, 65535, 5, 1441796, 65532, 0, 3, 65532, 1, 0, 65532, 2, 0, 65532, 3, 1, 65531, 3, 1441792, 65530, 3, 1441792, 65529, 3, 1441792, 65528, 3, 1441792, 65527, 3, 2, 65527, 4, 655362, 65526, 4, 2, 65526, 5, 655360, 65526, 6, 655360, 65526, 7, 655360)
 }
 
-[node name="BaseTiles" type="GridMap" parent="."]
+[node name="BaseTiles" type="GridMap" parent="Gridmaps"]
 mesh_library = ExtResource("1_3r2uw")
 cell_size = Vector3(16, 1, 16)
 collision_layer = 32769
 collision_mask = 32769
 data = {
 "cells": PackedInt32Array(65535, 0, 0, 65535, 1, 0, 65535, 2, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 65535, 0, 1, 1, 0, 1, 2, 0, 65534, 2, 0, 65534, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 2, 2, 0, 2, 1, 0, 2, 0, 0, 2, 65535, 0, 2, 65534, 0, 1, 65534, 0, 0, 65534, 0, 65535, 65534, 0, 65534, 65534, 0, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65533, 1, 0, 65533, 2, 0, 3, 65533, 0, 2, 65533, 0, 1, 65533, 0, 0, 65533, 0, 65535, 65533, 0, 65534, 65533, 0, 65533, 65533, 0, 65532, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65532, 0, 0, 65532, 2, 0, 65532, 1, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 3, 2, 0, 3, 1, 0, 3, 0, 0, 3, 65535, 0, 3, 65534, 0)
+}
+
+[node name="Decorations" type="GridMap" parent="Gridmaps"]
+mesh_library = ExtResource("3_u2bbj")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65525, 11, 655364, 65525, 10, 655363, 65521, 10, 655362, 65523, 9, 655364, 65528, 11, 1441792, 65523, 5, 1441793)
 }
 
 [node name="Player" parent="." instance=ExtResource("2_pqnr6")]

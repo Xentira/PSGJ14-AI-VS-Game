@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvc77kaesd8ja"]
+[gd_scene load_steps=3 format=3 uid="uid://dvc77kaesd8ja"]
 
 [ext_resource type="PackedScene" uid="uid://bgmpsmb2eoh2l" path="res://GUIs/health_bar.tscn" id="1_phuo1"]
-[ext_resource type="PackedScene" uid="uid://phth7mraliix" path="res://GUIs/shield_bar.tscn" id="2_0e3fu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mshmi"]
 viewport_path = NodePath("SubViewport2")
@@ -16,5 +15,3 @@ disable_3d = true
 transparent_bg = true
 
 [node name="HealthBar" parent="SubViewport2" instance=ExtResource("1_phuo1")]
-
-[node name="ShieldBar" parent="SubViewport2" instance=ExtResource("2_0e3fu")]
