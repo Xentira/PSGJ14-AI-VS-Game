@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://cxoiv7a745hox"]
 
-[ext_resource type="PackedScene" uid="uid://b5tnnfsws8abe" path="res://Player/Player.tscn" id="1_wk25d"]
 [ext_resource type="Script" path="res://Old Assets/Enemy.gd" id="2_hpho0"]
 [ext_resource type="PackedScene" uid="uid://bjtnoyoxl24ji" path="res://Old Assets/Enemy.tscn" id="3_cdtqy"]
 [ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://Particles/FireParticle.tscn" id="4_gqhdc"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="5_xxkw4"]
 [ext_resource type="PackedScene" uid="uid://c4k75o04ws3d6" path="res://Old Assets/fly.tscn" id="6_spp0y"]
-[ext_resource type="PackedScene" uid="uid://ktq6vg2gycry" path="res://Particles/pivot.tscn" id="7_cqq1x"]
+[ext_resource type="PackedScene" path="res://Particles/pivot.tscn" id="7_cqq1x"]
+[ext_resource type="PackedScene" uid="uid://dbeb0kpa4uj8g" path="res://Player/PlayerNew.tscn" id="7_tlo3l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_11jrc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,9 +43,6 @@ collision_layer = 32769
 size = Vector3(24.6, 1, 23)
 material = SubResource("StandardMaterial3D_j3h1d")
 
-[node name="Player" parent="." instance=ExtResource("1_wk25d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00284, 1.79975, 3.99963)
-
 [node name="Enemy" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33913, 6.43403)
 script = ExtResource("2_hpho0")
@@ -68,8 +65,10 @@ transform = Transform3D(-0.997808, -0.00327584, 0.0660929, -0.00320272, 0.999994
 speedMove = 2.0
 
 [node name="Pivot" parent="AntiVirus" instance=ExtResource("7_cqq1x")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.5, 0)
 rotationSpeed = 3
 
 [node name="Fly" parent="." instance=ExtResource("6_spp0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11398, 3.83164, 3.70765)
+
+[node name="Player" parent="." instance=ExtResource("7_tlo3l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0354853, 0.5, 0.232215)

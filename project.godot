@@ -18,6 +18,7 @@ config/icon="res://Images/icon.svg"
 [autoload]
 
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+DrawLine3d="*res://Scripts/DrawLine3D.gd"
 
 [editor_plugins]
 

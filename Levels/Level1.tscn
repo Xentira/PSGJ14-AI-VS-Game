@@ -57,6 +57,7 @@ data = {
 }
 
 [node name="Control" parent="." instance=ExtResource("4_rbpsl")]
+visible = false
 offset_top = 528.0
 offset_right = -1004.0
 size_flags_horizontal = 0
