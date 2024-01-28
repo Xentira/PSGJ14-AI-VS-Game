@@ -22,9 +22,9 @@ func _ready():
 func _physics_process(delta: float) -> void:
 
 	armature.look_at(ScreenPointToRay(), Vector3.UP)
-	DrawLine3d.DrawLine(Vector3(0,3,0), get_viewport().get_camera_3d().global_position - Vector3(0, -10, 0), Color.RED)
+	#DrawLine3d.DrawLine(Vector3(0,3,0), get_viewport().get_camera_3d().global_position - Vector3(0, -10, 0), Color.RED)
 	
-	#print(ray_cast_3d.)
+	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -64,7 +64,7 @@ func ScreenPointToRay():
 	var spaceState = get_world_3d().direct_space_state
 	var mousePosition = get_viewport().get_mouse_position()
 	var rayOrigin = camera.project_ray_origin(mousePosition)
-	var rayEnd = rayOrigin + camera.project_local_ray_normal(mousePosition) * camera.far
+	var rayEnd = rayOrigin + camera.project_ray_normal(mousePosition) * camera.far
 	var rayQuery = PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd)
 	var rayDict = spaceState.intersect_ray(rayQuery)
 	if rayDict.has("position"):
