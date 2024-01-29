@@ -5,7 +5,7 @@ enum States {IDLE = 0, MOVING = 1, DEAD = 2}
 var state = States.IDLE
 
 @export var speed = 10.0
-
+@export var attackDamage = 10
 signal WormAttack(damage:int)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -15,17 +15,18 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var armature: Node3D = $Armature
 @onready var ray_cast_3d: RayCast3D = $Camera/RayCast3D
+@onready var projectile_spawn: Node3D = $ProjectileSpawn
 
 func _ready():
 	pass
 
 func _physics_process(delta: float) -> void:
 
-	armature.look_at(ScreenPointToRay(), Vector3.UP)
-	#DrawLine3d.DrawLine(Vector3(0,3,0), get_viewport().get_camera_3d().global_position - Vector3(0, -10, 0), Color.RED)
-	
-	
-	
+	var point = ScreenPointToRay()
+	point += Vector3(0,0.5, 0)
+	armature.look_at(point, Vector3.UP)
+	DrawLine3d.DrawLine(position, point, Color.PURPLE)
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -43,8 +44,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
-	if Input.is_action_just_pressed("1"):
-		WormAttack.emit(-50)
+	if Input.is_action_just_pressed("fire"):
+		fireProjectile()
 
 	match state:
 		States.IDLE:
@@ -70,3 +71,6 @@ func ScreenPointToRay():
 	if rayDict.has("position"):
 		return rayDict["position"]
 	return Vector3()
+	
+func fireProjectile():
+	WormAttack.emit(attackDamage)

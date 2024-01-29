@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7h2gdakv85ms"]
+
+[ext_resource type="Script" path="res://Player/Projectile.gd" id="1_h16ai"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rne7t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4t071"]
+
+[node name="Projectile" type="Node"]
+script = ExtResource("1_h16ai")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_rne7t")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_4t071")
