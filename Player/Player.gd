@@ -76,7 +76,8 @@ func ScreenPointToRay():
 	
 func fireProjectile():
 	var bulletObj = bullet.instantiate()
+	bulletObj.transform = projectile_spawn.global_transform
+	bulletObj.rotation = armature.global_rotation
+	bulletObj.rotation.x = 0
 	root.add_child(bulletObj)
-	bulletObj.transform = projectile_spawn.transform
-	bulletObj.rotation = projectile_spawn.rotation
 	#WormAttack.emit(attackDamage)

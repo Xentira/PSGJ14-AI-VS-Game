@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dix75wa2f3ond" path="res://Particles/FireParticle.tscn" id="4_gqhdc"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="5_xxkw4"]
 [ext_resource type="PackedScene" uid="uid://c4k75o04ws3d6" path="res://Old Assets/fly.tscn" id="6_spp0y"]
-[ext_resource type="PackedScene" uid="uid://ktq6vg2gycry" path="res://Particles/pivot.tscn" id="7_cqq1x"]
+[ext_resource type="PackedScene" path="res://Particles/pivot.tscn" id="7_cqq1x"]
 [ext_resource type="PackedScene" uid="uid://dbeb0kpa4uj8g" path="res://Player/PlayerNew.tscn" id="7_tlo3l"]
 [ext_resource type="PackedScene" uid="uid://c7h2gdakv85ms" path="res://Player/Projectile.tscn" id="8_5bbge"]
 
