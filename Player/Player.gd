@@ -10,7 +10,9 @@ signal WormAttack(damage:int)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var bullet = load("res://Player/Projectile.tscn")
 
+@onready var root = $".."
 @onready var camera: Camera3D = $Camera
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var armature: Node3D = $Armature
@@ -73,4 +75,8 @@ func ScreenPointToRay():
 	return Vector3()
 	
 func fireProjectile():
-	WormAttack.emit(attackDamage)
+	var bulletObj = bullet.instantiate()
+	root.add_child(bulletObj)
+	bulletObj.transform = projectile_spawn.transform
+	bulletObj.rotation = projectile_spawn.rotation
+	#WormAttack.emit(attackDamage)

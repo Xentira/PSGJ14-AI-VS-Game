@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4t071"]
 
-[node name="Projectile" type="Node"]
+[node name="Projectile" type="Node3D"]
 script = ExtResource("1_h16ai")
 
 [node name="Area3D" type="Area3D" parent="."]
