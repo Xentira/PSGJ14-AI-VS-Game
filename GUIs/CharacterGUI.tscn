@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmya13d31fi4a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b48sr"]
+bg_color = Color(0.454902, 0.0862745, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nli5i"]
+bg_color = Color(1, 0.309804, 0.254902, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1008.0
+offset_top = 361.0
+offset_right = 1172.0
+offset_bottom = 658.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 0
+offset_left = 1018.0
+offset_top = 374.0
+offset_right = 1142.0
+offset_bottom = 633.0
+theme_override_styles/background = SubResource("StyleBoxFlat_b48sr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nli5i")
+value = 100.0
+fill_mode = 3
