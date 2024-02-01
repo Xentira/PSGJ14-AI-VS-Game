@@ -3,7 +3,7 @@ extends Node3D
 @onready var area_3d: Area3D = $Area3D
 
 var BULLET_SPEED = 35
-var BULLET_DAMAGE = 15
+var BULLET_DAMAGE = 25
 
 const KILL_TIMER = 1
 var timer = 0
@@ -28,8 +28,8 @@ func _physics_process(delta):
 
 func collided(body):
 	if hit_something == false:
-		if body.has_method("bullet_hit"):
-			body.bullet_hit(BULLET_DAMAGE, global_transform)
+		if body.has_method("changeHealth"):
+			body.changeHealth(BULLET_DAMAGE * -1)
 
 	hit_something = true
 	end_pos = global_transform.origin

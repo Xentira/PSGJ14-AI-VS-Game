@@ -16,7 +16,7 @@ var rayLength = 10
 #used to handle on death and inactive states
 @export var active: bool = true
 @export var health: int = 100
-@export var shield: int = 100
+@export var shield: int = 0
 @export var damage: int = 10
 
 @onready var health_bar: ProgressBar = $HealthBar/SubViewport2/HealthBar
@@ -31,6 +31,8 @@ func _ready()-> void:
 	health_bar.value = health
 	shield_bar.max_value = shield
 	shield_bar.value = shield
+	if shield <= 0:
+		shield_bar.visible = false
 	player.WormAttack.connect(changeHealth)
 	if health_bar != null:
 		health_bar.value = health
@@ -53,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	match state:
 		States.MOVING:
 			if not waiting:
-				animation_player.speed_scale = speedMove / 2
+				animation_player.speed_scale = speedMove / 1.5
 				animation_player.play("Walk Cycle") # play the animation
 				var movement_position = player.transform.origin # Set the position to look at
 				var transform_val = self.transform.looking_at(movement_position, Vector3.UP) # Set the transform value
@@ -108,4 +110,3 @@ func changeHealth(amount: int) -> void:
 		health_bar.value = health
 		if health <= 0:
 			state = States.DEAD
-	#print("health changed " + str(amount) + " , " + str(health))

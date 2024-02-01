@@ -17,7 +17,8 @@ var bullet = load("res://Player/Projectile.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var armature: Node3D = $Armature
 @onready var ray_cast_3d: RayCast3D = $Camera/RayCast3D
-@onready var projectile_spawn: Node3D = $ProjectileSpawn
+@onready var projectile_spawn: Node3D = $Armature/ProjectileSpawn
+
 
 func _ready():
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dbeb0kpa4uj8g"]
+[gd_scene load_steps=33 format=3 uid="uid://dbeb0kpa4uj8g"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_33odf"]
 [ext_resource type="Texture2D" uid="uid://bfd7rrmlfdvqx" path="res://Models/Player.png" id="2_dgcr2"]
@@ -350,6 +350,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vdr2r")
 
+[sub_resource type="BoxMesh" id="BoxMesh_8sd7o"]
+
 [sub_resource type="Animation" id="Animation_516nm"]
 resource_name = "Dying"
 length = 2.0
@@ -560,11 +562,11 @@ mesh = SubResource("ArrayMesh_o3vpn")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.706502, -0.707711, 0, 0.707711, 0.706502, 0, 0, 0, 1, 0.0174417, 2.05557, -0.0299678)
+transform = Transform3D(0.353251, -0.353855, 0, 0.353855, 0.353251, 0, 0, 0, 0.5, 0.0174417, 2.05557, -0.0299678)
 shape = SubResource("BoxShape3D_pd4vf")
 
 [node name="Armature" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2, 0)
+transform = Transform3D(-0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 0, 2, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
 bones/0/name = "Bone"
@@ -727,6 +729,13 @@ bone_idx = 13
 mesh = SubResource("ArrayMesh_v21tq")
 skeleton = NodePath("")
 
+[node name="ProjectileSpawn" type="Node3D" parent="Armature"]
+transform = Transform3D(-2, 0, 3.01992e-07, 0, 2, 0, -3.01992e-07, 0, -2, 1.80625e-07, 0, -1.19623)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/ProjectileSpawn"]
+visible = false
+mesh = SubResource("BoxMesh_8sd7o")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_067ra")
@@ -736,6 +745,3 @@ playback_default_blend_time = 0.5
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 20, 11)
 visible = false
-
-[node name="ProjectileSpawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8326, 1.41718)

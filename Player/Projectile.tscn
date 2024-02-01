@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7h2gdakv85ms"]
+[gd_scene load_steps=5 format=3 uid="uid://c7h2gdakv85ms"]
 
 [ext_resource type="Script" path="res://Player/Projectile.gd" id="1_h16ai"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6r8ah"]
+albedo_color = Color(0.545098, 0, 0.545098, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rne7t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4t071"]
+radius = 0.463029
+height = 0.926059
 
 [node name="Projectile" type="Node3D"]
 script = ExtResource("1_h16ai")
@@ -12,10 +17,17 @@ script = ExtResource("1_h16ai")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+transform = Transform3D(0.471093, 0, 0, 0, -1.17846e-08, -0.150318, 0, 0.269601, -6.57059e-09, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_6r8ah")
 mesh = SubResource("CapsuleMesh_rne7t")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_4t071")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.694118, 0.133333, 0.717647, 1)
+light_energy = 25.0
+light_indirect_energy = 6.612
+omni_range = 1.16581
