@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 			
 			#reset to default speed for animation
 			#animation_player.speed_scale = 1
-			
+			health_bar.visible = false
 			collision_shape_3d.disabled = true
 			await get_tree().create_timer(2.5).timeout
 			queue_free()
