@@ -8,6 +8,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var waiting: bool = false
 var cam: Camera3D
 var rayLength = 10
+var target
 
 @export var state: States = States.MOVING 
 @export var speedMove = 3.5 # The moving speed.
@@ -25,8 +26,11 @@ var rayLength = 10
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var agent: NavigationAgent3D = $NavigationAgent3D
 	
 func _ready()-> void:
+	target = player.global_transform.origin
+	updateTargetLocation(target)
 	health_bar.max_value = health
 	health_bar.value = health
 	shield_bar.max_value = shield
@@ -55,16 +59,27 @@ func _physics_process(delta: float) -> void:
 	match state:
 		States.MOVING:
 			if not waiting:
+				target = player.global_transform.origin
+				updateTargetLocation(target)
 				animation_player.speed_scale = speedMove / 1.5
 				animation_player.play("Walk Cycle") # play the animation
-				var movement_position = player.transform.origin # Set the position to look at
-				var transform_val = self.transform.looking_at(movement_position, Vector3.UP) # Set the transform value
-				self.transform  = self.transform.interpolate_with(transform_val, gravSpeed * delta) # making the object look at the player
-				var direction = (player.position - self.position).normalized()
-				velocity.x = direction.x * speedMove
-				velocity.z = direction.z * speedMove
+				#var movement_position = player.transform.origin # Set the position to look at
+				#var transform_val = self.transform.looking_at(movement_position, Vector3.UP) # Set the transform value
+				#self.transform  = self.transform.interpolate_with(transform_val, gravSpeed * delta) # making the object look at the player
+				#var direction = (player.position - self.position).normalized()
+				#velocity.x = direction.x * speedMove
+				#velocity.z = direction.z * speedMove
+				
+				var currentLocation = global_transform.origin
+				var nextLocation = agent.get_next_path_position()
+				var transform_val = self.transform.looking_at(nextLocation, Vector3.UP)
+				self.transform  = self.transform.interpolate_with(transform_val, gravSpeed * delta)
+				var direction = (nextLocation - currentLocation).normalized()
+				velocity = direction * speedMove
+							
 				if ray.get_collider() == player:
 					state = States.MELEE
+					
 				move_and_slide()
 		States.MELEE:
 			if not waiting:
@@ -110,3 +125,6 @@ func changeHealth(amount: int) -> void:
 		health_bar.value = health
 		if health <= 0:
 			state = States.DEAD
+
+func updateTargetLocation(target):
+	agent.set_target_position(target)

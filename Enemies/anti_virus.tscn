@@ -1682,3 +1682,8 @@ shape = SubResource("BoxShape3D_2gye0")
 [node name="HealthBar" parent="." instance=ExtResource("3_rfgyj")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 1.5, -0.5)
 texture = SubResource("ViewportTexture_usuj2")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 2.0
+use_3d_avoidance = true
