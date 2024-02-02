@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4l8b06071s1t"]
+[gd_scene load_steps=14 format=3 uid="uid://b4l8b06071s1t"]
 
 [ext_resource type="MeshLibrary" uid="uid://63pw1moff1y5" path="res://MeshLibs/BaseTiles.tres" id="1_3r2uw"]
 [ext_resource type="MeshLibrary" uid="uid://tpfnsko3ly3q" path="res://MeshLibs/GroundPathTiles.tres" id="1_6oh0e"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beoacsrisj1mr" path="res://Game Manager/game_manager.tscn" id="5_82dl4"]
 [ext_resource type="PackedScene" uid="uid://wpcwxgbxgfof" path="res://Enemies/anti_virus.tscn" id="7_m4qr8"]
 [ext_resource type="PackedScene" uid="uid://g1nqyt7d8qor" path="res://Enemies/fly.tscn" id="8_uuw31"]
+[ext_resource type="PackedScene" uid="uid://b827qxbbd5rg4" path="res://Enemies/firewall.tscn" id="9_ieqie"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tswcb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -85,3 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6352, 0.5, 14.4201)
 [node name="fly" parent="." instance=ExtResource("8_uuw31")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.4866, 0.5, -11.4773)
 state = 1
+
+[node name="Firewall" parent="." instance=ExtResource("9_ieqie")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.883663, 3.26116, -12.0048)
