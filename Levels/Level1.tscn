@@ -89,3 +89,4 @@ state = 1
 
 [node name="Firewall" parent="." instance=ExtResource("9_ieqie")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.883663, 3.26116, -12.0048)
+state = 1

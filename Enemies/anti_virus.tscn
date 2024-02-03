@@ -1430,7 +1430,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2gye0"]
-size = Vector3(1.78903, 1, 1.54871)
+size = Vector3(1.78903, 0.875977, 1.54871)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_usuj2"]
 viewport_path = NodePath("SubViewport2")
@@ -1676,7 +1676,7 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125885, 0.498879, -0.167963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125885, 0.560891, -0.167963)
 shape = SubResource("BoxShape3D_2gye0")
 
 [node name="HealthBar" parent="." instance=ExtResource("3_rfgyj")]
@@ -1685,5 +1685,6 @@ texture = SubResource("ViewportTexture_usuj2")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
-radius = 2.0
-use_3d_avoidance = true
+height = 0.5
+radius = 3.0
+max_neighbors = 30

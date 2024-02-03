@@ -14,8 +14,7 @@ var target
 @export var speedMove = 3.5 # The moving speed.
 @export var gravSpeed = 5 # Set the speed value.
 @export var isGrounded = true
-#used to handle on death and inactive states
-@export var active: bool = true
+@export var active: bool = true #used to handle on death and inactive states
 @export var health: int = 100
 @export var shield: int = 0
 @export var damage: int = 10
@@ -58,6 +57,7 @@ func _physics_process(delta: float) -> void:
 		
 	match state:
 		States.MOVING:
+			print(self.transform.origin)
 			if not waiting:
 				target = player.global_transform.origin
 				updateTargetLocation(target)
