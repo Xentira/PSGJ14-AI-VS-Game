@@ -40,12 +40,12 @@ func ScreenPointToRay():
 	var camera = get_tree().root.get_camera_3d()
 	var rayOrigin = camera.project_ray_origin(mousePos)
 	var rayEnd = rayOrigin + camera.project_ray_normal(mousePos) * camera.far
-	print(rayEnd)
+	#print(rayEnd)
 	DrawLine3d.DrawLine(camera.global_position, camera.project_ray_normal(mousePos), Color.BLUE )
 	var rayDict = spaceState.intersect_ray(PhysicsRayQueryParameters3D.create(rayOrigin, rayEnd))
 	
 	if rayDict.has("position"):
-		print("True")
+		#print("True")
 		return rayDict["position"]
 		
 	return Vector3()

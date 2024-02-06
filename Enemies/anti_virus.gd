@@ -26,7 +26,8 @@ var target
 @onready var ray: RayCast3D = $RayCast3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var agent: NavigationAgent3D = $NavigationAgent3D
-	
+@onready var firewallParticle: Node3D = $"Firewall Particle"
+
 func _ready()-> void:
 	target = player.global_transform.origin
 	updateTargetLocation(target)
@@ -57,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		
 	match state:
 		States.MOVING:
-			print(self.transform.origin)
+			#rint(self.transform.origin)
 			if not waiting:
 				target = player.global_transform.origin
 				updateTargetLocation(target)
@@ -117,9 +118,11 @@ func _physics_process(delta: float) -> void:
 func changeHealth(amount: int) -> void:
 	if shield_bar.visible == true:
 		shield += amount
+		#print("Amount to change shield = " + str(shield) + "Shield current value: " + str(shield_bar.value) + "Shield max value: " +str(shield_bar.max_value))
 		shield_bar.value = shield
 		if shield <= 0:
 			shield_bar.visible = false
+			firewallParticle.enabled = false
 	else:
 		health += amount
 		health_bar.value = health
@@ -128,3 +131,10 @@ func changeHealth(amount: int) -> void:
 
 func updateTargetLocation(target):
 	agent.set_target_position(target)
+	
+func enableShield(amount: int) -> void:
+	shield_bar.value = amount
+	shield_bar.max_value = amount
+	shield_bar.visible = true
+	firewallParticle.enabled = true
+	changeHealth(amount)

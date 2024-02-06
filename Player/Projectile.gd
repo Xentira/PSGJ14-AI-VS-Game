@@ -33,5 +33,5 @@ func collided(body):
 
 	hit_something = true
 	end_pos = global_transform.origin
-	print(start_pos.distance_to(end_pos))
+	#print(start_pos.distance_to(end_pos))
 	queue_free()

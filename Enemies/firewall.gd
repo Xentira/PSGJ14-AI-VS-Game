@@ -25,6 +25,7 @@ var rayLength = 10
 @onready var player: CharacterBody3D = $"../Player" # Getting the player
 @onready var ray: RayCast3D = $RayCast3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var area: Area3D = $Area3D
 	
 func _ready()-> void:
 	health_bar.max_value = health
@@ -73,7 +74,10 @@ func _physics_process(delta: float) -> void:
 				animation_player.speed_scale = 1
 				animation_player.play("Hunker Down") # play the animation
 				waiting = true
-		
+				var inArea = area.get_overlapping_bodies()
+				for a in inArea:
+					if a.is_in_group("antivirus"):
+						a.enableShield(100)
 			#if animation_player.is_playing() == false:
 				#if ray.get_collider() != player:
 					#state = States.MOVING

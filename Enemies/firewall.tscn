@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b827qxbbd5rg4"]
+[gd_scene load_steps=20 format=3 uid="uid://b827qxbbd5rg4"]
 
 [ext_resource type="Texture2D" uid="uid://b7wgbpkyqleqy" path="res://Models/textures/FireWallShell.png" id="1_vth3y"]
 [ext_resource type="Script" path="res://Enemies/firewall.gd" id="1_vxptk"]
@@ -1152,12 +1152,15 @@ _data = {
 [sub_resource type="ViewportTexture" id="ViewportTexture_b2epi"]
 viewport_path = NodePath("SubViewport2")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_njqnl"]
+radius = 24.508
+
 [node name="Firewall" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 script = ExtResource("1_vxptk")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.67238e-07, -0.174474, -2.3061)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.67238e-07, -1.64532, -2.3061)
 target_position = Vector3(0, 0, 5)
 collision_mask = 32769
 hit_from_inside = true
@@ -1419,6 +1422,10 @@ texture = SubResource("ViewportTexture_b2epi")
 
 [node name="FireParticle" parent="." instance=ExtResource("5_5h1gn")]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, -1.08326, 0.324902)
-visible = false
 amount = 50
 trail_lifetime = 0.01
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_njqnl")
