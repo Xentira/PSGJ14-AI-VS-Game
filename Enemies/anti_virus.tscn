@@ -1437,6 +1437,7 @@ size = Vector3(1.78903, 0.875977, 1.54871)
 viewport_path = NodePath("SubViewport2")
 
 [node name="Anti-Virus" type="CharacterBody3D" groups=["antivirus"]]
+safe_margin = 0.1
 script = ExtResource("1_jf3lx")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
@@ -1685,10 +1686,13 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.5, 0, 1.5, -0.5)
 texture = SubResource("ViewportTexture_usuj2")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 3.0
+path_max_distance = 50.01
 avoidance_enabled = true
-height = 0.5
+height = 0.01
 radius = 3.0
 max_neighbors = 30
+use_3d_avoidance = true
 
 [node name="Firewall Particle" parent="." instance=ExtResource("4_fb5i1")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.75, 0)

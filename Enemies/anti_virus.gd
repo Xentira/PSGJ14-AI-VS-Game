@@ -29,19 +29,24 @@ var target
 @onready var firewallParticle: Node3D = $"Firewall Particle"
 
 func _ready()-> void:
+	
 	target = player.global_transform.origin
 	updateTargetLocation(target)
+		
 	health_bar.max_value = health
 	health_bar.value = health
 	shield_bar.max_value = shield
 	shield_bar.value = shield
 	if shield <= 0:
 		shield_bar.visible = false
-	player.WormAttack.connect(changeHealth)
+	#player.WormAttack.connect(changeHealth)
 	if health_bar != null:
 		health_bar.value = health
 	else:
 		print("healthbar error , " + str(health_bar))
+		
+	# Make sure to not await during _ready.
+	call_deferred("actor_setup")
 	
 func _physics_process(delta: float) -> void:
 	#scale = Vector3(size, size, size)
@@ -58,10 +63,10 @@ func _physics_process(delta: float) -> void:
 		
 	match state:
 		States.MOVING:
-			#rint(self.transform.origin)
 			if not waiting:
 				target = player.global_transform.origin
 				updateTargetLocation(target)
+				
 				animation_player.speed_scale = speedMove / 1.5
 				animation_player.play("Walk Cycle") # play the animation
 				#var movement_position = player.transform.origin # Set the position to look at
@@ -73,6 +78,7 @@ func _physics_process(delta: float) -> void:
 				
 				var currentLocation = global_transform.origin
 				var nextLocation = agent.get_next_path_position()
+				
 				var transform_val = self.transform.looking_at(nextLocation, Vector3.UP)
 				self.transform  = self.transform.interpolate_with(transform_val, gravSpeed * delta)
 				var direction = (nextLocation - currentLocation).normalized()
@@ -138,3 +144,7 @@ func enableShield(amount: int) -> void:
 	shield_bar.visible = true
 	firewallParticle.enabled = true
 	changeHealth(amount)
+	
+func actor_setup():
+	# Wait for the first physics frame so the NavigationServer can sync.
+	await get_tree().physics_frame

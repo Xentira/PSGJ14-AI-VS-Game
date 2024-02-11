@@ -8,8 +8,9 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var waiting: bool = false
 var cam: Camera3D
 var rayLength = 10
+var target
 
-@export var state: States = States.IDLE 
+@export var state: States = States.MOVING
 @export var speedMove = 3.5 # The moving speed.
 @export var gravSpeed = 5 # Set the speed value.
 @export var isGrounded = true
@@ -26,6 +27,8 @@ var rayLength = 10
 @onready var ray: RayCast3D = $RayCast3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var area: Area3D = $Area3D
+@onready var firewallParticle: Node3D = $"Firewall Particle"
+@onready var agent: NavigationAgent3D = $NavigationAgent3D
 	
 func _ready()-> void:
 	health_bar.max_value = health
@@ -34,12 +37,18 @@ func _ready()-> void:
 	shield_bar.value = shield
 	if shield <= 0:
 		shield_bar.visible = false
+	
+	target = player.global_transform.origin
+	updateTargetLocation(target)
 		
-	player.WormAttack.connect(changeHealth)	
+	#player.WormAttack.connect(changeHealth)	
 	if health_bar != null:
 		health_bar.value = health
 	else:
 		print("healthbar error , " + str(health_bar))
+	
+	# Make sure to not await during _ready.
+	call_deferred("actor_setup")
 	
 func _physics_process(delta: float) -> void:
 	#scale = Vector3(size, size, size)
@@ -57,16 +66,29 @@ func _physics_process(delta: float) -> void:
 	match state:
 		States.MOVING:
 			if not waiting:
+				target = player.global_transform.origin
+				updateTargetLocation(target)
+				
 				animation_player.speed_scale = speedMove / 2
 				animation_player.play("Walk Cycle") # play the animation
-				var movement_position = player.transform.origin # Set the position to look at
-				var transform_val = self.transform.looking_at(movement_position, Vector3.UP) # Set the transform value
-				self.transform  = self.transform.interpolate_with(transform_val, gravSpeed * delta) # making the object look at the player
-				var direction = (player.position - self.position).normalized()
-				velocity.x = direction.x * speedMove
-				velocity.z = direction.z * speedMove
+				#var movement_position = player.transform.origin # Set the position to look at
+				#var transform_val = self.transform.looking_at(movement_position, Vector3.UP) # Set the transform value
+				#self.transform  = self.transform.interpolate_with(transform_val, gravSpeed * delta) # making the object look at the player
+				#var direction = (player.position - self.position).normalized()
+				#velocity.x = direction.x * speedMove
+				#velocity.z = direction.z * speedMove
+				
+				var currentLocation = global_transform.origin
+				var nextLocation = agent.get_next_path_position()
+
+				var transform_val = self.transform.looking_at(nextLocation, Vector3.UP)
+				self.transform  = self.transform.interpolate_with(transform_val, gravSpeed * delta)
+				var direction = (nextLocation - currentLocation).normalized()
+				velocity = direction * speedMove
+				
 				if ray.get_collider() == player:
 					state = States.HUNKER
+					
 				move_and_slide()
 		States.HUNKER:
 			if not waiting:
@@ -104,6 +126,9 @@ func _physics_process(delta: float) -> void:
 		_:
 			print("Error Invalid State")	
 
+func updateTargetLocation(target):
+	agent.set_target_position(target)
+
 func changeHealth(amount: int) -> void:
 	if shield_bar.visible == true:
 		shield += amount
@@ -115,3 +140,7 @@ func changeHealth(amount: int) -> void:
 		health_bar.value = health
 		if health <= 0:
 			state = States.DEAD
+
+func actor_setup():
+	# Wait for the first physics frame so the NavigationServer can sync.
+	await get_tree().physics_frame
